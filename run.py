@@ -10,6 +10,7 @@ if __name__ == "__main__":
     )
 
 
+# add to import - db from taskmanager
 # def create_tables(self):
 #     with app.app_context():
 #         db.create_all()

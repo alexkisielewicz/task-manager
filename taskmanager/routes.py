@@ -12,21 +12,26 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = list(Category.query.order_by(Category.category_name).all())
+    # cursor objec similar to array or list of objects
+    return render_template("categories.html", categories=categories)
 
 
 # we will be submitting form to the DB so need to include 2 methods
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if request.method== "POST":
-        # if requested method == POST, we create instance of category using imported model
+    if request.method == "POST":
+        # if requested method == POST, we create instance of category
+        # using imported model
         # now we need to import request from  flask at the top of the file
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
         db.session.commit()
-        # now we need to import redirect and url_for from flask at the top of the file
+        # now we need to import redirect and url_for from flask at
+        # the top of the file
         return redirect(url_for("categories"))
     return render_template("add_category.html")
 
-# by default the normal method is GET so it'll behave as else condition and return render_template
-# from outside of the block, POST block is indented, can be split to two separate functions
+# by default the normal method is GET so it'll behave as else condition
+# and return render_template from outside of the block, POST block is indented,
+# can be split to two separate functions
