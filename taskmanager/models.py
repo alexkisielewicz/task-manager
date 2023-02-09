@@ -1,5 +1,8 @@
 
-from taskmanager import db
+from taskmanager import db, app
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import os
 
 
 class Category(db.Model):
