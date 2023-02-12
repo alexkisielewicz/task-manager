@@ -1,5 +1,5 @@
 import os
-from taskmanager import app
+from taskmanager import app, db
 # from taskmanager import db
 
 if __name__ == "__main__":
@@ -11,9 +11,9 @@ if __name__ == "__main__":
 
 
 # add to import - db from taskmanager
-# def create_tables(self):
-#     with app.app_context():
-#         db.create_all()
+def create_tables(self):
+    with app.app_context():
+        db.create_all()
 
 
-# create_tables(db)
+create_tables(db)
