@@ -3,6 +3,6 @@ Flask==2.2.2
 Flask-SQLAlchemy==3.0.3
 greenlet==2.0.2
 itsdangerous==2.1.2
-psycopg2==2.9.5s
+psycopg2==2.9.5
 SQLAlchemy==1.4.29
 Werkzeug==2.2.2
